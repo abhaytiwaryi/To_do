@@ -43,9 +43,32 @@ int main() {
 
         break;
     }
-        case 3:
-        cout << "Delete Task\n";
+        case 3:{
+        cout << "Delete Task selected\n";
+         if(tasks.size() == 0) {
+            cout<<"List is empty"<<endl;
+        } else {
+            for(int i = 0; i < tasks.size(); i++) {
+                cout << i + 1 << ". " << tasks[i] << endl;
+            }
+            int taskNumber;
+            cout << "Enter task number to delete task: ";
+            cin >> taskNumber;
+
+            int index = taskNumber -1;
+
+            if(index  < 0 || index >= tasks.size()) {
+                cout << "Invalid task number\n";
+            } else {
+                cout << "Deleted: " << tasks[index] << endl;
+                tasks.erase(tasks.begin() + index); 
+            }
+        }
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
         break;
+        }
         case 4:
         cout << "Exit\n";
         break;
